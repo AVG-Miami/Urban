@@ -111,12 +111,12 @@ MyFavoritePetsAndBirds = ['cat', 'wolf', 'ostrich']
 #   x y z - для координат
 
 # никогда не используйте в названиях переменных одиночные l, I, O  !
-l = 34
-I = 43
-if l > I:
+index_1 = 34
+index_2 = 43
+if index_1 > index_2:
     print()
-O = 9
-if O > 0:
+index_3 = 9
+if index_3 > 0:
     print()
 
 # lowercase (слово в нижнем регистре)
@@ -134,8 +134,8 @@ if O > 0:
 
 # автоматическое переименование в PyCharm и подсказки - вам не нужно набирать длинные названия переменных
 
-ss = ['cat', 'wolf', 'ostrich']
-if 'lion' in ss:
+animals = ['cat', 'wolf', 'ostrich']
+if 'lion' in animals:
     print('Wow!')
 
 # В каждой уважающей себя компании есть style guide (стайл-гайд) - руководство по стилю написания кода.
