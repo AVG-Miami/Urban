@@ -1,0 +1,13 @@
+def test(a, *list, **arg):
+    print(a,list, arg)
+  
+test(2,3,4,5,6,Text="Мой текст")
+
+def factorial(n):
+     if n == 0 :
+         return 1
+     else:
+         return n * factorial(n-1)
+         
+print(factorial(5))
+
