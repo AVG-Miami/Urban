@@ -21,14 +21,11 @@ class UrTube:
         self.current_user = None
 
     def register(self, nickname, password, age):
-        res = ''
-        if self.current_user:
-            self.log_out()
-        reg_user = User( nickname, password, age )
+       reg_user = User( nickname, password, age )
         for item_user in self.users:
             if item_user.nickname == nickname:
-                res = 'Пользователь ' + nickname + ' уже существует!'
-                return "res"
+                print('Пользователь ' + nickname + ' уже существует!')
+                return
         self.users.append( reg_user )
         print('Пользователь ', reg_user , "успешно зарегистрирован")
         self.log_in(nickname,password)
@@ -46,6 +43,7 @@ class UrTube:
 
     def watch_video(self, word_search): # абсолютный поиск видео и воспроизведение
         dostup = False
+        video_found = True
         for item_video in self.videos:
             if item_video.title == word_search:
                 if item_video.adult_mode:
@@ -64,6 +62,11 @@ class UrTube:
                         print (run_time)
                         sleep(1)
                     print("Конец видео")
+
+            else:
+                video_found = False
+        if  not video_found:
+            print('Видео не найдено')
 
 
 
@@ -89,7 +92,7 @@ print("Добро пожаловать на мой YouTube!")
 
 ur = UrTube()
 v1 = Video('Лучший язык программирования 2024 года', 200)
-v2 = Video('Для чего девушкам парень программист?', 10, adult_mode=True)
+v2 = Video('Для чего девушкам парень программист?', 3, adult_mode=True)
 
 # Добавление видео
 ur.add(v1, v2)
@@ -116,4 +119,4 @@ ur.register('vasya_pupkin', 'F8098FM8fjm9jmi', 55)
 print(ur.current_user)
 
 # Попытка воспроизведения несуществующего видео
-#watch_video('Лучший язык программирования 2024 года!')
+ur.watch_video('Лучший язык программирования 2024 года!')
