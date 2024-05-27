@@ -13,6 +13,6 @@ class Buiding:
         return 'Строение ' + self.name + ' всего зданий ' + str( self.total )
 
 
-for i in range( 20 ):
+for i in range( 40 ):
     my_house = Buiding()
     print( my_house )
