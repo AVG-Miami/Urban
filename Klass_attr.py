@@ -1,11 +1,18 @@
-class buiding:
+from random import randint, choice
+
+
+class Buiding:
     total = 0
-    def __init__(self, name):
-        self.name = name
-        buiding.total += 1
+    build_name = ['Дом', 'Сарай', 'Ратуша', 'Высотка', 'Церковь', 'Стадион', 'Бассейн', 'Университет']
+
+    def __init__(self):
+        self.name = choice( Buiding.build_name )
+        Buiding.total += 1
+
+    def __str__(self):
+        return 'Строение ' + self.name + ' всего зданий ' + str( self.total )
 
 
-print(buiding.total)
-for i in range(40):
-    my_house = buiding("Здание_" + str(i))
-    print("Построено ", my_house.name, " общее количество зданий ", my_house.total)
+for i in range( 20 ):
+    my_house = Buiding()
+    print( my_house )
