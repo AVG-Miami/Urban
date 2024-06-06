@@ -13,12 +13,15 @@ class Car( Vehicle ):
         return horse_power
 
 
-class Nissan( Car, Vehicle ):
+class Nissan( Car ):
     price = 2000000
     vehicle_type = 'Легковое авто'
 
+    def horse_powers(self):
+        horse_power = 150
+        return horse_power
 
 my_car = Nissan()
-print( 'Количество лошидиных сил для автомобиля', Fore.RED, my_car.vehicle_type, Fore.WHITE, ' цена ', Fore.GREEN,
+print( 'Тип автомобиля', Fore.RED, my_car.vehicle_type, Fore.WHITE, ' цена ', Fore.GREEN,
        my_car.price )
-print( my_car.horse_powers() )
+print( 'Количество лошидиных сил для автомобиля ', my_car.horse_powers() )
