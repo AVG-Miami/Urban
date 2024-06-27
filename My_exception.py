@@ -22,20 +22,21 @@ def delenie(one, two):
 
 
 def my_func(one, two):
-    print ("Даны два значения", one , two)
+    print( "Даны два значения", one, two )
     try:
         tru_value( one, two )
     except InvalidDataException as e:
         print( "Ошибка ", e.message, e.e_info )
     else:
-        print("Введены числа, продолжаем")
+        print( "Введены числа, продолжаем" )
         try:
             print( "Результат деления :", delenie( one, two ) )
         except ProcessingException as e:
             print( "Перехват ошибки внутри функции ", e.message, e.e_info )
             raise
 
-print("Деление на 2х чисел с проверкой их значений")
+
+print( "Деление на 2х чисел с проверкой их значений" )
 one = 1
 two = 2
 my_func( one, two )
@@ -51,5 +52,5 @@ two = 0
 try:
     my_func( one, two )
 except ProcessingException as e:
-    print ("Перехват ошибки из тела программы")
+    print( "Перехват ошибки из тела программы" )
     print( "Ошибка ", e.message, e.e_info )
