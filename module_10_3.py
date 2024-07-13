@@ -1,27 +1,34 @@
-
 import threading
-balanse=1000
+
+balanse = 1000
+
+
 class BankAccount():
     global balanse
-    def deposit(self,amount):
+
+    def deposit(self, amount):
         global balanse
         with threading.Lock():
-            balanse+=amount
+            balanse += amount
         print("Deposited {}, new balance is {}".format(amount, balanse))
-    def withdraw(self,amount):
+
+    def withdraw(self, amount):
         global balanse
         with threading.Lock():
-            balanse= balanse - amount
+            balanse = balanse - amount
         print("Withdrew {}, new balance is {}".format(amount, balanse))
 
 
 def deposit_task(account, amount):
-  for _ in range(5):
-    account.deposit(amount)
+    for _ in range(5):
+        account.deposit(amount)
+
 
 def withdraw_task(account, amount):
-  for _ in range(5):
-    account.withdraw(amount)
+    for _ in range(5):
+        account.withdraw(amount)
+
+
 account = BankAccount()
 
 deposit_thread = threading.Thread(target=deposit_task, args=(account, 100))
