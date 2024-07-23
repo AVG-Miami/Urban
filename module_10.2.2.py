@@ -1,9 +1,11 @@
 import multiprocessing
 
+
 class WarehouseManager:
-    data = {}
+
     def __init__(self):
-        #        self.data={}
+        manager = multiprocessing.Manager()
+        self.data = manager.dict()
         print( "init" )
 
     def process_request(self, requests):
@@ -24,7 +26,7 @@ class WarehouseManager:
 
     def run(self, requests):
         with multiprocessing.Pool( processes=5 ) as pool:
-            pool.map( self.process_request, requests )
+            result = pool.map( self.process_request, requests )
 
 
 # Создаем менеджера склада
@@ -41,4 +43,5 @@ if __name__ == '__main__':
     # Запускаем обработку запросов
     manager.run( requests )
     # Выводим обновленные данные о складских запасах
+    print()
     print( "состояние склада", manager.data )
