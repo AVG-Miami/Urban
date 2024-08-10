@@ -16,7 +16,7 @@ from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 
-TOKEN = "7450958579:AAG0jdKJhXpLLobfpGgMraO3o_3mgjBjVFw"
+TOKEN = "bot_tocken"
 
 dp = Dispatcher()
 
