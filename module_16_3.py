@@ -2,16 +2,16 @@ from fastapi import FastAPI, Path
 from typing import Annotated
 
 app = FastAPI()
-users = {'1': 'Имя: Example, возраст: 18'}
+users = {"1": "Имя: Example, возраст: 18"}
 
 
 @app.get('/users')
-async def get_all_message() -> dict:
+async def get_all_users() -> dict:
     return users
 
 
 @app.get('/user/{user_id}')
-async def get_message(user_id: str) -> dict:
+async def get_user(user_id: str) -> str:
     return users[user_id]
 
 
@@ -32,6 +32,6 @@ async def update_message(user_id: str,
 
 
 @app.delete('/user/{user_id}')
-async def delete_message(user_id: str) -> str:
+async def delete_user(user_id: str) -> str:
     users.pop(user_id)
-    return (f"Delete message id {user_id}")
+    return (f"Delete user id {user_id}")
