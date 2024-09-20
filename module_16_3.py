@@ -10,9 +10,9 @@ async def get_all_message() -> dict:
     return users
 
 
-@app.get('/message/{message_id}')
-async def get_message(message_id: str) -> dict:
-    return message_db[message_id]
+@app.get('/user/{user_id}')
+async def get_message(user_id: str) -> dict:
+    return users[user_id]
 
 
 @app.post('/user/{username}/{age}')
