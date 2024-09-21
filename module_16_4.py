@@ -5,8 +5,7 @@ from typing import Annotated
 
 app = FastAPI()
 
-users = [{'id': 1, 'username': 'UrbanUser', 'age': 24}, {'id': 2, 'username': 'UrbanTest', 'age': 36},
-         {'id': 3, 'username': 'admin', 'age': 42}]
+users = []
 
 
 class User(BaseModel):
