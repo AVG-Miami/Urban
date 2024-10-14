@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{%  extends "fourth_task/menu.html" %}
+
+<head>
+    <meta charset="UTF-8">
+
+{% block header %}
+  {{ block.super }}
+    Главная
+     {% endblock %}
+
+</head>
+<body>
+{% block pagename %}
+     <H1> Главная страница  </H1>
+{% endblock %}
+
+
+{% block navigation %}
+  {{ block.super }}
+  {% endblock %}
+
+
+{% block content %}
+  {{ block.super }}
+  {% endblock %}
+
+
+</body>
+</html>
