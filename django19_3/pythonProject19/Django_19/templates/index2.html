@@ -1,0 +1,25 @@
+{%  extends "index.html" %}
+
+{% block title %} Home - {{ block.super }} {% endblock %}
+
+{% block header %}
+  {{ block.super }}
+  <h2> Welcome to the Page </h2>
+   {% endblock %}
+
+{% block content %}
+<h2> lates Posts </h2>
+<ul>
+    <li> Post1  </li>
+    <li> Post2  </li>
+    <li> Post3  </li>
+</ul>
+{% endblock %}
+
+{% block footer %}
+  <h2> Thanks for visiting! </h2>
+  {{ block.super }}
+
+   {% endblock %}
+
+

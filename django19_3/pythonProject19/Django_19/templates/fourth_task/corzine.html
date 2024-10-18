@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{%  extends "fourth_task/menu.html" %}
+
+{% block header %}
+  {{ block.super }}
+    Корзина
+     {% endblock %}
+</head>
+
+<body>
+{% block pagename %}
+     <H1> Корзина  </H1>
+{% endblock %}
+
+
+{% block navigation %}
+  {{ block.super }}
+  {% endblock %}
+
+
+
+{% block content %}
+
+<h1> Извините ваша корзина пуста</h1>
+  <form action="/">
+     <input type="submit" value="Вернуться на главную" />
+  </form>
+{% endblock %}
+
+</body>
+</html>

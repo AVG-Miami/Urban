@@ -1,0 +1,31 @@
+<head>
+    <title>
+     {% block header %}
+      Игровая платформа
+     {% endblock %}
+    </title>
+</head>
+<body>
+
+{% block pagename %}
+  {% endblock %}
+
+<nav>
+      {% block navigation %}
+       <ul>
+       <h2>
+          <li> <p> <a href="/"> Главная страница </a> </p>  </li>
+          <li> <p> <a href="/magazine"> Магазин </a> </p>   </li>
+          <li> <p> <a href="/corzine"> Корзина </a>  </p>   </li>
+       </h2>
+       </ul>
+    {% endblock %}
+
+
+    <main>
+        {% block content %}
+        <p> content </p>
+        {% endblock %}
+    </main>
+
+</body>

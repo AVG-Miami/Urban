@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+     {% block header %}
+    <h1> Welcome to My Site  </h1>
+    {% endblock %}
+
+    </title>
+    <link rel = 'stylesheet' type="text/css" href = '{% static "style.css" %}'> </link>
+
+    {% block header %}
+    <h1> Welcome to My Site  </h1>
+    {% endblock %}
+
+    <nav>
+      {% block navigation %}
+       <ul>
+         <li> раз </li>
+         <li> два </li>
+         <li> три </li>
+       </ul>
+        {% endblock %}
+    </nav>
+
+    <main>
+        {% block content %}
+        <p> Тут будут посты </p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        <p> 2024 My siate </p>
+        {% endblock %}
+    </footer>
+
+
+</head>
+<body>
+{% include 'i.html' %}
+<h1>  Большой {{ text }} </h1>
+<h2> Средний </h2>
+<h3>  Мелкий </h3>
+<p>  gggggggggggggggdsd kjkj; </p>
+<p>  23123412 lllldsd; </p>
+<button> <h1>  кнопка </h1>  </button>
+<a href="#">  {{name}}  </a>
+<ul>
+    <li> раз </li>
+    <li> два </li>
+    <li> три </li>
+</ul>
+
+{% for i in list %}
+<p> {{ i | floatformat:3 }} </p>
+{% endfor %}
+
+{% if len_list < 4  %}
+    <h2> Ok</h2>
+{% else   %}
+    <h2>  Not ok </h2>
+{% endif %}
+
+
+urban https://uquide.ru/tablica-osnovnykh-tegov-html-s-primerami
+
+
+
+</body>
+
+
+</html>
