@@ -16,12 +16,17 @@ router =APIRouter(prefix="/user", tags=["user"])
 
 @router.get('/')
 async def all_users(db:Annotated[Session, Depends(get_db)]):
-    users = db.scalars(select(User).where(User != None)).all()
+    users = db.scalars(select(User)).all()
     return users
 
 @router.get('/user_id')
 async def user_by_id(db : Annotated[Session, Depends(get_db)], user_id: int) :
     users = db.scalars(select(User).where(User.id == user_id)).all()
+    if users == []:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail='There is no user found'
+        )
     return users
 
 @router.get('/user_id/tasks')
@@ -72,7 +77,6 @@ async def delete_user(db : Annotated[Session, Depends(get_db)], user_id: int):
             detail='There is no user found'
         )
     db.execute(delete(User).where(User.id == user_id))
-    db.commit()
     db.execute(delete(Task).where(Task.user_id == user_id))
     db.commit()
 
