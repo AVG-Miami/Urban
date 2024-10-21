@@ -1,0 +1,25 @@
+body {
+      background-color: #94a26b;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: left;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+p {
+text-align: left;
+}
+
+a {
+text-align: left;
+}
