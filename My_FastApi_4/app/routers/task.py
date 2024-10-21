@@ -18,6 +18,11 @@ async def all_tasks(db:Annotated[Session, Depends(get_db)]):
 @router.get('/task_id')
 async def task_by_id(db:Annotated[Session, Depends(get_db)], task_id: int):
     tasks = db.scalars(select(Task).where(Task.id == task_id)).all()
+    if tasks == []:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail='There is no task found'
+            )
     return tasks
 
 @router.post('/create')
