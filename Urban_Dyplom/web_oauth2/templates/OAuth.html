@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <title>Auth</title>
+</head>
+<body>
+<H1> Тадам </H1>
+<p><b>  Данные полученные при регистрации приложения на yandex</b></p>
+<p> <b> client_id :</b>  {{client_id}} </p>
+<p> <b>client_secret: </b> {{client_secret}} </p>
+<img src="{% static "images/yandex.jpg" %}" alt="данные приложения" >
+<p> Далее делаем GET запрос по адресу https://oauth.yandex.ru/authorize?response_type=code&client_id=ПОДСТАВЛЕМ CLIENT_ID</p>
+<p> <b>В ответ получаем код авторизации (access_code):</b> {{code}} </p>
+<p> Далее делаем POST запрос по адресу https://oauth.yandex.ru/token и передаем в парметрах </p>
+<p> 'grant_type': 'authorization_code',</p>
+<p>            'code': code,</p>
+<p>            'client_id': client_id,</p>
+<p>            'client_secret': client_secret,</p>
+<p>           'redirect_uri': 'http://localhost:8000/accounts/yandex/login/callback.html/',
+            }</p>
+<p> <b>получаем access_token : </b>{{access_token}} </p>
+<p>После этого можно запросить авторизационные данные по адресу https://login.yandex.ru/info </p>
+<p> Методом GET передав в параметре access_token</p>
+<p> <b> Авторизационные данные с Yandex полученные с помощью access_token:</b>  </p>
+<p>  (user_info) {{user_info}} </p>
+</body>
+</html>
