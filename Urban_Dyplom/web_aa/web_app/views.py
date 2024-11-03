@@ -6,6 +6,8 @@ from .models import Students
 from .serializers import StudentSerializer
 
 
+def index(request):
+    return render(request, 'index.html')
 
 # Create your views here.
 class IsAdminOrReadOnly(permissions.BasePermission):
@@ -25,7 +27,6 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
     пользователю, который ее добавил. А просматривать,
     по прежнему, всем пользователям.
     """
-
     def has_object_permission(self, request, view, obj):
         # Read permissions are allowed to any request,
         # so we'll always allow GET, HEAD or OPTIONS requests.
@@ -45,7 +46,7 @@ class StudentsAPIView(generics.ListCreateAPIView):
 
 
 #
-class StudentsAPIUpdate(generics.RetrieveUpdateAPIView):#UpdateAPIView):
+class StudentsAPIUpdate(generics.RetrieveUpdateAPIView):
     """
     изменять запись может только автор,
     а просматривать, разрешено всем пользователям

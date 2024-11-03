@@ -5,7 +5,8 @@ from rest_framework import permissions
 from .models import Students
 from .serializers import StudentSerializer
 
-
+def index(request):
+    return render(request, 'index.html')
 
 # Create your views here.
 class IsAdminOrReadOnly(permissions.BasePermission):
